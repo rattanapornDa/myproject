@@ -1,18 +1,15 @@
 @extends('bootstrap-theme')
 
 @section('content')
-<h1>Covid19 #{{ $staffs->id }}</h1>
+<h1>Staff #{{ $staff->id }}</h1>
 <table class="table table-sm" style="width:50%">
     <tbody>
-        <tr><th> ID </th><td>{{ $covid19->id }}</td></tr>
-        <tr><th> Date  </th><td> {{ $covid19->date }} </td></tr>
-        <tr><th> Country   </th><td> {{ $covid19->country }} </td></tr>
-        <tr><th> Total   </th><td> {{ $covid19->total }} </td></tr>
-        <tr><th> Active   </th><td> {{ $covid19->active }} </td></tr>
-        <tr><th> Death   </th><td> {{ $covid19->death }} </td></tr>
-        <tr><th> Recovered   </th><td> {{ $covid19->recovered }} </td></tr>
-        <tr><th> Total_in_1m   </th><td> {{ $covid19->total_in_1m }} </td></tr>
-        <tr><th> Remark   </th><td> {{ $covid19->remark }} </td></tr>
+        <tr><th> ID </th><td>{{ $staff->id }}</td></tr>
+        <tr><th> Name  </th><td> {{ $staff->Name }} </td></tr>
+        <tr><th> Salary   </th><td> {{ $staff->Salay }} </td></tr>
+        <tr><th> Age   </th><td> {{ $staff->Age }} </td></tr>
+        <tr><th> Phone   </th><td> {{ $staff->Phone }} </td></tr>
+        
     </tbody>
 </table>
 @endsection

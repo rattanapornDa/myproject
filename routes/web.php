@@ -96,21 +96,21 @@ Route::get('/', function () {
 });
 Route::get("/covid19/create", "Covid19Controller@create");
 Route::get("/covid19/{id}/edit", "Covid19Controller@edit");
-
-
 Route::get('/covid19', 'Covid19Controller@index');
-
 Route::get('/covid19/{id}', 'Covid19Controller@show');
-
 Route::post("/covid19", "Covid19Controller@store");
 Route::patch("/covid19/{id}", "Covid19Controller@update");
-
 Route::delete('/covid19/{id}', 'Covid19Controller@destroy');
 
 //Route::get('/staffs', 'StaffController@index');
-Route::resource('/staffs','StaffController');
-
-
+//Route::resource('/staff','StaffController');
+Route::get("/staff/create", "StaffController@create");
+Route::get("/staff/{id}/edit", "StaffController@edit");
+Route::get('/staff/{id}', 'StaffController@show');
+Route::patch("/staff/{id}", "StaffController@update");
+Route::delete('/staff/{id}', 'StaffController@destroy');
+Route::get('/staff', 'StaffController@index');
+Route::post("/staff", "StaffController@store");
 
 
 

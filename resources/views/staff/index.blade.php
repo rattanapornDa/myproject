@@ -2,9 +2,9 @@
 
 @section('content')
 <h1>Thailand Coronavirus Report</h1>
-<a href="{{ url('/staffs/create') }}" class="btn btn-sm btn-success mr-4">New Record</a> 
+<a href="{{ url('/staff/create') }}" class="btn btn-sm btn-success mr-4">New Record</a> 
 
-<form action="{{ url('/staffs') }}" method="GET" class="my-4">
+<form action="{{ url('/staff') }}" method="GET" class="my-4">
     <input name="search" id="search" value="{{ request('search') }}" />
     <button type="submit">Search</button>
 </form>
@@ -19,8 +19,18 @@
         <td>{{ $item->Age  }}</td>
         <td>{{  $item->Salay  }}</td>
         <td>{{  $item->Phone  }}</td>
-        
+        <td>
+            <a href="{{ url('/staff/'.$item->id ) }}" class="btn btn-sm btn-primary">View</a>
+            <a href="{{ url('/staff/'.$item->id.'/edit' ) }}" class="btn btn-sm btn-warning">Edit</a>
+            <form method="POST" action="{{ url('/staff' . '/' . $item->id) }}" style="display:inline">
+    {{ method_field('DELETE') }}
+    {{ csrf_field() }}
+    <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Confirm delete?')">
+        Delete
     </button>
+        </td>
+        
+    
 </form>
 </td>
 
