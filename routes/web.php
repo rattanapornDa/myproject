@@ -116,3 +116,11 @@ Route::post("/staff", "StaffController@store");
 
 
 
+
+Route::resource('post', 'PostController');
+Route::resource('book', 'BookController');
+Route::resource('street', 'streetController');
+Route::resource('street', 'streetController');
+Route::resource('street', 'streetController');
+Route::resource('street', 'streetController');
+Route::resource('street', 'StreetController');
