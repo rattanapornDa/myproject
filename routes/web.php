@@ -94,6 +94,7 @@ Route::get('/', function () {
     return view('welcome');
 
 });
+/////////////////////////////////////////////////////////////////////////////////////////////
 Route::middleware(['auth', 'role:admin,teacher'])->group(function () {
     Route::get('/teacher', function () {
         return view('teacher/index');
@@ -114,7 +115,7 @@ Route::middleware(['auth', 'role:admin,teacher'])->group(function () {
     });
     
     });
-    
+//////////////////////////////////////////////////////////////////////////////////////////////////    
 //Route::get('/staffs', 'StaffController@index');
 //Route::resource('/staff','StaffController');
 Route::get("/staff/create", "StaffController@create");
@@ -137,3 +138,9 @@ Route::resource('street', 'streetController');
 Route::resource('street', 'streetController');
 Route::resource('street', 'streetController');
 Route::resource('street', 'StreetController');
+
+
+Route::resource('profile', 'ProfileController');
+Route::resource('profile', 'ProfileController');
+Route::resource('vehicle', 'VehicleController');
+Route::resource('user', 'UserController');
