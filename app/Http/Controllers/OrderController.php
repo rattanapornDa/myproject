@@ -142,6 +142,24 @@ class OrderController extends Controller
         $requestData = $request->all();
         
         $order = Order::findOrFail($id);
+        switch($requestData['status']){
+            case "paid" : 
+                $requestData['paid_at'] = date("Y-m-d H:i:s");
+                break;
+            case "completed" : 
+                $requestData['completed_at'] = date("Y-m-d H:i:s");
+                break;
+                case "cancelled" : 
+                    $requestData['cancelled_at'] = date("Y-m-d H:i:s");
+                    //ปรับเพิ่มสินค้าในสต๊อก
+                    $order_products = $order->order_products;
+                    foreach($order_products as $item)
+                    {
+                        products::where('id',$item->products_id)->increment('quantity',$item->quantity);
+                    }
+
+                    break;
+        }
         $order->update($requestData);
 
         return redirect('order')->with('flash_message', 'Order updated!');

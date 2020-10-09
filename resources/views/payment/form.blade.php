@@ -10,7 +10,7 @@
 </div>
 <div class="form-group {{ $errors->has('order_id') ? 'has-error' : ''}}">
     <label for="order_id" class="control-label">{{ 'Order Id' }}</label>
-    <input class="form-control" name="order_id" type="number" id="order_id" value="{{ isset($payment->order_id) ? $payment->order_id : ''}}" >
+    <input class="form-control" name="order_id" type="number" id="order_id" value="{{ isset($payment->order_id) ? $payment->order_id : request('order_id')}}"  readonly >
     {!! $errors->first('order_id', '<p class="help-block">:message</p>') !!}
 </div>
 <div class="form-group {{ $errors->has('slip') ? 'has-error' : ''}}">

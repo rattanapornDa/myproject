@@ -149,5 +149,9 @@ Route::middleware(['auth'])->group(function () {
 Route::resource('order', 'OrderController');
 Route::resource('payment', 'PaymentController');
 Route::resource('order-product', 'OrderProductController');
+//pdf
+Route::get('/product/pdf', 'ProductController@pdf_index');
 Route::resource('product', 'ProductController');
+
 });
+
