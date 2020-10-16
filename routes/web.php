@@ -146,6 +146,14 @@ Route::resource('vehicle', 'VehicleController');
 Route::resource('user', 'UserController');
 
 Route::middleware(['auth'])->group(function () {
+
+Route::middleware(['role:admin'])->group(function () {    //ONLY ADMIN CAN ACCESS
+Route::get('order-product/reportdaily', 'OrderProductController@reportdaily');
+Route::get('order-product/reportmonthly', 'OrderProductController@reportmonthly');
+Route::get('order-product/reportyearly', 'OrderProductController@reportyearly');
+});
+
+
 Route::resource('order', 'OrderController');
 Route::resource('payment', 'PaymentController');
 Route::resource('order-product', 'OrderProductController');
